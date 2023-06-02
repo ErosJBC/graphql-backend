@@ -74,7 +74,7 @@ const resolvers = {
         obtenerPedidosByVendedor: async (_, {}, ctx) => {
             try {
                 const { usuario } = ctx;
-                const pedidos = await Pedido.find({ vendedor: usuario.id });
+                const pedidos = await Pedido.find({ vendedor: usuario.id }).populate('cliente');
                 return pedidos;
             } catch (error) {
                 console.log(error);
