@@ -286,7 +286,7 @@ const resolvers = {
             // Guardarlo en la base de datos
             const resultado = await nuevoPedido.save();
 
-            return resultado;
+            return resultado.populate('cliente');
         },
         actualizarPedido: async (_, { id, input }, ctx) => {
             const { cliente, pedido } = input;
